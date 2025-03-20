@@ -1,3 +1,0 @@
-/home/bomba.cat/git/Shaders/build/CMakeFiles/shader.dir
-/home/bomba.cat/git/Shaders/build/CMakeFiles/edit_cache.dir
-/home/bomba.cat/git/Shaders/build/CMakeFiles/rebuild_cache.dir

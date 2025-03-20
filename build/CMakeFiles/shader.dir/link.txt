@@ -1,1 +1,0 @@
-/usr/lib64/ccache/cc CMakeFiles/shader.dir/src/main.c.o CMakeFiles/shader.dir/src/glad.c.o -o shader  /usr/lib64/libglfw.so.3.3 /usr/lib64/libGL.so
