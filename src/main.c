@@ -101,6 +101,7 @@ int main(int argc, char** argv)
 
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+  glfwWindowHint(GLFW_SAMPLES, 16);
 	GLFWwindow* window = glfwCreateWindow(1280, 720, "Shaderground", NULL, NULL);
 	if (!window)
 	{
