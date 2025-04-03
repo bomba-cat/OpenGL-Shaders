@@ -6,6 +6,22 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+typedef struct
+{
+  float x, y;
+} Vector2;
+
+typedef struct
+{
+  float x, y, z;
+} Vector3;
+
+typedef struct
+{
+  Vector3 pos;
+  Vector3 verticies[3];
+} Triangle;
+
 void error_callback(int error, const char* description)
 {
 	fprintf(stderr, "Error %s", description);
@@ -89,6 +105,15 @@ GLuint compileShader(GLenum type, const char* filename) {
   return shader;
 }
 
+void loadVerticies(float *verticies)
+{
+  glBufferData(GL_ARRAY_BUFFER, sizeof(verticies), verticies, GL_STATIC_DRAW);
+  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+  glEnableVertexAttribArray(0);
+  glBindVertexArray(0);
+  return;
+}
+
 int main(int argc, char** argv)
 {
 	if (!glfwInit())
@@ -128,12 +153,8 @@ int main(int argc, char** argv)
       -0.0f, -1.0f, 0.0f,
       -0.5f, 0.0f, 0.0f
     };
-
-  glBufferData(GL_ARRAY_BUFFER, sizeof(verticies), verticies, GL_STATIC_DRAW);
-  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-  glEnableVertexAttribArray(0);
-
-  glBindVertexArray(0);
+  printf("%f", verticies[1]);
+  loadVerticies(verticies);
 
   GLuint shaderProgram = glCreateProgram();
   GLuint vertexProgram = compileShader(GL_VERTEX_SHADER, getShaderPath("shader/shader.vs"));
